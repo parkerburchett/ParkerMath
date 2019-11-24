@@ -4,7 +4,8 @@ import java.math.*;
 import java.util.*;
 import java.text.*;
 // This works within a small margin of error because the number of rectangles is always approaching the right answer
-// there are some issues with figuring out the proper amount of rectangles. Spcificly when the ratio of left to right hand sides are not cleanly devisiable. 
+// there are some issues with figuring out the proper amount of rectangles. 
+// In particular when the ratio of left to right hand sides are not cleanly devisiable. 
 
 public class AreaUnderQuadratic {
 
