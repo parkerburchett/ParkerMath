@@ -1,7 +1,7 @@
 import java.math.*;
 import java.util.*;
 
-public class ParkerMath{
+public class QuadraticSolver{
 
    public double [] quadraticEquation(final double A, final double B, final double C)
    {
