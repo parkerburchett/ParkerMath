@@ -18,13 +18,14 @@ public class Main
          double approxArea = AreaCalculator.findArea(start, end, rectangles);
          DecimalFormat df = new DecimalFormat("###.00000000");
          
-         System.out.println("The area between [" + start + "," + end + "] under the curve f(x) = x^2 is approx : " +  df.format(approxArea));
+         System.out.print("The area between [" + start + "," + end + "] under the curve f(x) = x^2 is approx: ");
+         System.out.println(df.format(approxArea));
          double trueArea = AreaCalculator.trueArea(start,end);
          
-         System.out.println("The true area is :" + df.format(trueArea));   
+         System.out.println("The true area is: " + df.format(trueArea));   
          System.out.println("The approximation was off by " + df.format((trueArea - approxArea)));
          
-         System.out.println("Go again (1)    stop(0)");
+         System.out.println("Go again(1)    stop(0)");
          choice = Integer.parseInt(kb.nextLine());
       }
    }

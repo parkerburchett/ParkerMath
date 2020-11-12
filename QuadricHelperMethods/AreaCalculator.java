@@ -5,24 +5,18 @@ public class AreaCalculator
 {
    
    public static double findArea( double start,  double end, final int rectangles)
-   {
-      // this method stiches all the helper methods together. 
-      // the main method needs to call this instead of each of the helper methods
-      
+   {    
       double fixedStart =  Math.min(start,end);
-      double fixedEnd = Math.max(start,end);
-     
+      double fixedEnd = Math.max(start,end); 
       double width =  getWidth(fixedStart, fixedEnd, rectangles);
       double[] xValues = createX_Values(fixedStart, fixedEnd, rectangles, width);
-      double[] yValues = createY_Values(xValues, width, rectangles);
+      double[] yValues = createY_Values(xValues, rectangles);
       
       double area =0.0;
-      
       for (int i =0; i < rectangles; i++)
       {
          area = area + width * yValues[i];
       }
-
       return area;
    } 
    
@@ -31,12 +25,15 @@ public class AreaCalculator
       return Math.pow(x,2);
    }
    
-   private static double getWidth(final double start, final double end, final int rectangles)
+   private static double getWidth(final double start, final double end, 
+                                  final int rectangles)
    {
-      return (end - start) / rectangles;
+      return Math.abs(end - start) / rectangles;
    }
    
-   private static double[] createX_Values(final double start, final double end, final int rectangles, final double width)   
+   
+   private static double[] createX_Values(final double start, final double end,
+                                          final int rectangles, final double width)   
    {   
       double[] xValues = new double[rectangles];
      
@@ -47,7 +44,8 @@ public class AreaCalculator
       return xValues;
    }
    
-   private static double[] createY_Values(double[] xValues, double width, final int rectangles)
+  
+   private static double[] createY_Values(double[] xValues, final int rectangles)
    {
       double[] yValues = new double[rectangles];
 
@@ -62,7 +60,6 @@ public class AreaCalculator
    {
       double fixedStart =  Math.min(start,end);
       double fixedEnd = Math.max(start,end);
-      
       return (Math.pow(fixedEnd,3)/3) - (Math.pow(fixedStart,3)/3);
    }
      
