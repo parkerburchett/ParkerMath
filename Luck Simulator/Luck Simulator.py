@@ -1,11 +1,11 @@
 # this is ment to simulate the relative importance of luck in highly competive spaces
-
 import random
 import numpy as np
 
 
 class Person():
 
+    # both of these numbers are doubles. [0,1]
     def __init__(self, competence, luck):
         self.competence =competence
         self.luck = luck
@@ -39,7 +39,7 @@ persons.sort(key=get_score, reverse=True)
 lucky_10 = []
 comp_10 =[]
 num_better_50_percent_luck = 0
-num_better_90_percent_luck =0
+num_better_90_percent_luck = 0
 print('When you have {} people trying to get into 10 slots:'.format(sample_size))
 for i in persons[:10]:
     luck = i.luck
@@ -54,10 +54,12 @@ for i in persons[:10]:
     #print('Competence {} Luck {} Weighted Score {}'.format(comp,luck,score))
 
 avg_std_above_mean = round((np.average(comp_10)-50) /10, 2) # this is a simplified formula for standard deviation.
-print('You need to have an average competence score of {} Standard deviations above the mean.'.format(avg_std_above_mean))
+print('You need to have an average competence score of {} Standard Deviations above the mean.'.format(avg_std_above_mean))
 print('And be more lucky that {}% of your peers'.format(np.average(lucky_10)))
 print('Amoung those 10\n{} had better than 50% luck \n{} had better than 90% luck'.format(num_better_50_percent_luck
                                                                                             ,num_better_90_percent_luck))
+
+# you might  want to run the 100K people one a thousand times toget the influence of luck on the outceom.
 print('fin')
 
 
